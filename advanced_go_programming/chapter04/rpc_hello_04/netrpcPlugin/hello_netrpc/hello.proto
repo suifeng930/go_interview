@@ -1,0 +1,17 @@
+
+syntax ="proto3";
+
+package rpc_protobuf;
+
+import "google/protobuf/timestamp.proto";
+
+option  go_package="./hello_netrpc";
+
+message String{
+  string value=1;
+}
+
+// 采用 protobuf 来定义 HelloService 服务
+service HelloService{
+  rpc Hello(String) returns (String);
+}

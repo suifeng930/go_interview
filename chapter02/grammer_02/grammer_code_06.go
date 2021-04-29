@@ -1,22 +1,16 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-// channel -select 特性
+func calc(index string, a, b int) int {
 
-func channel_select()  {
+	ret:=a+b
+	fmt.Println(index,a,b,ret)
+	return ret
 
-	int_chan :=make(chan int,1)
-	string_chan :=make(chan string,1)
-	int_chan<-1
-	string_chan<-"hello"
-	select {
-	case value:=<-int_chan:
-		fmt.Println(value)
-	case value:=<-string_chan:
-		panic(value)
-	}
 }
-// 随机输出
+
+//10 1 2 3
+//20 0 2 2
+//2 0 2 2
+//1 1 3 4

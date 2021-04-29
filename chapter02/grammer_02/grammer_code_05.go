@@ -1,22 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-type People struct {}
+// channel -select 特性
 
-func (p *People) ShowA()  {
-	fmt.Println("showA")
-	p.ShowB()
+func channel_select()  {
+
+	int_chan :=make(chan int,1)
+	string_chan :=make(chan string,1)
+	int_chan<-1
+	string_chan<-"hello"
+	select {
+	case value:=<-int_chan:
+		fmt.Println(value)
+	case value:=<-string_chan:
+		panic(value)
+	}
 }
-
-func (p *People) ShowB() {
-	fmt.Println("showB")
-}
-
-type Teacher struct {
-	People
-}
-
-func (t *Teacher)ShowB()  {
-	fmt.Println("teacher showB")
-}
+// 随机输出

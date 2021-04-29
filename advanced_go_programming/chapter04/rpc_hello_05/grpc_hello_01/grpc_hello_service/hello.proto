@@ -1,0 +1,17 @@
+
+syntax ="proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package grpc_hello_01;
+
+option  go_package="./";
+
+
+message String {
+  string  value=1;
+}
+
+service HelloService{
+  rpc Hello (String) returns (String);
+}

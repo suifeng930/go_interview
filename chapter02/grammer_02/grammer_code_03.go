@@ -1,21 +1,48 @@
 package main
 
-type student struct {
-	Name string
-	Age int
+import (
+	"fmt"
+	"sync"
+)
+
+// 闭包 + go runnext的问题
+func sync_Wait_Group()  {
+
+	wg :=sync.WaitGroup{}
+	wg.Add(20)
+
+	for i:=0;i<10;i++ {
+		go func() {
+			fmt.Println("i: ",i)    //
+			wg.Done()
+		}()
+	}
+	for j :=0;j<10;j++{
+		go func(j int) {
+			fmt.Println("j: ",j) //
+			wg.Done()
+		}(j)
+	}
+	wg.Wait()
 }
 
-func pase_student() map[string]*student {
-
-	m:=make(map[string]*student)
-
-	stus :=[]student{
-		{Name: "zhou",Age: 24},
-		{Name: "li",Age: 23},
-		{Name: "wang",Age: 22},
-	}
-	for _, stu := range stus {
-		m[stu.Name]=&stu
-	}
-	return m
-}
+//j:  9
+//i:  10
+//i:  10
+//i:  10
+//i:  10
+//i:  10
+//i:  10
+//i:  10
+//i:  10
+//i:  10
+//i:  10
+//j:  0
+//j:  1
+//j:  2
+//j:  3
+//j:  4
+//j:  5
+//j:  6
+//j:  7
+//j:  8

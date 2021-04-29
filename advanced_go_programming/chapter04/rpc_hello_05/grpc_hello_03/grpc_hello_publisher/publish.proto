@@ -1,0 +1,18 @@
+syntax ="proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package grpc_hello_publisher;
+
+option  go_package="./";
+
+
+message String {
+  string  value=1;
+}
+
+service PublishService{
+  rpc Publish(String) returns (String);
+  // stream   指定启用流特性
+  rpc Subscribe ( String) returns (stream String);
+}

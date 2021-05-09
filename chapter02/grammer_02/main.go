@@ -1,6 +1,6 @@
 package main
 
-import "runtime"
+import "fmt"
 
 func main() {
 
@@ -22,15 +22,30 @@ func main() {
 	//t.ShowB()
 
 	// 5.下面代码会触发异常吗？ 请详细说明
-
-	runtime.GOMAXPROCS(1)
-	channel_select()
+	//
+	//runtime.GOMAXPROCS(1)
+	//channel_select()
 	// 6.下面代码输出什么
 
-	a :=1
-	b :=2
-	defer calc("1",a,calc("10",a,b))
-	a =0
-	defer calc("2",a,calc("20",a,b))
-	b=1
+	//a :=1
+	//b :=2
+	//defer calc("1",a,calc("10",a,b))
+	//a =0
+	//defer calc("2",a,calc("20",a,b))
+	//b=1
+
+	// 7. 请写出以下输入内容
+	//Print_code()
+
+	// 10. 以下代码能编译过去吗？ 为什么
+	//var Per Person=Student{}
+	//think:="bitch"
+	//fmt.Println(Per.Speak(think))
+
+	//11 . 以下代码打印什么内容，为什么
+	if live()==nil {
+		fmt.Println("AAAAA")
+	}else {
+		fmt.Println("BBBBBB")
+	}
 }

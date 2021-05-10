@@ -1,0 +1,24 @@
+package main
+
+import (
+	"sync"
+)
+
+type MyMutex struct {
+	count int
+	sync.Mutex
+}
+//
+//func main()  {
+//
+//	var mu MyMutex
+//	mu.Lock()
+//	var mu2 =mu //Variable declaration copies lock value to 'mu2': type 'MyMutex' is 'sync.Locker'
+//	mu.count++
+//	mu.Unlock()
+//	mu2.Lock()
+//	mu2.count++
+//	mu2.Unlock()
+//	fmt.Println(mu.count,mu2.count)
+//
+//}

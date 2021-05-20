@@ -17,7 +17,7 @@ import "fmt"
 
 // 读已经关闭的chan
 
-func main() {
+func main11() {
 
 	fmt.Println("以下是数值的chan")
 	ci := make(chan int, 3)
